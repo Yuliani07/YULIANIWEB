@@ -1,0 +1,21 @@
+
+
+<?php $__env->startSection("konten"); ?>
+
+    <h1>Semua Data</h1>
+
+    <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $bayar): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        Nama : <?php echo e($bayar->nama); ?> <br>
+        Keterangan: <?php echo e($bayar->keterangan); ?> <br>
+        <a href="<?php echo e(route('ubah_bayar', ['id' => $bayar->id])); ?>">Ubah</a>
+        <a href="<?php echo e(route('tampil_bayar', ['id' => bayar->id])); ?>">Tampil</a>
+
+        <form action="<?php echo e(route('hapus_bayar', ['id' => $bayar->id])); ?>" method="post">
+            <?php echo csrf_field(); ?>
+            <?php echo method_field('delete'); ?>
+            <button type="submit">Hapus</button>
+        </form>
+        <hr>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make("blank", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\YULIANI\Downloads\Web Yuliani\web-PMM2UMKT\resources\views/bayar/semua.blade.php ENDPATH**/ ?>
